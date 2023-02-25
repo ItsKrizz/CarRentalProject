@@ -1,4 +1,4 @@
-﻿using Models;
+﻿using CarRental.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.ComponentModel.DataAnnotations;
@@ -12,10 +12,10 @@ namespace CarRental.Data
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Insurance> Insurances { get; set; }
         public virtual DbSet<Location> Locations { get; set; }
-        public virtual DbSet<FlightDestination> FlightDestinations { get; set; }
-        public virtual DbSet<Passenger> Passengers { get; set; }
-        public virtual DbSet<Pilot> Pilots { get; set; }
-        public virtual DbSet<PilotAircraft> PilotsAircraft { get; set; }
+        public virtual DbSet<Reservation> Reservations { get; set; }
+        public virtual DbSet<Transaction> Transactions { get; set; }
+        public virtual DbSet<Vehicle> Vehicles { get; set; }
+        public virtual DbSet<VehicleType> VehicleTypes { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
