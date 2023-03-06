@@ -16,13 +16,13 @@ namespace CarRental.Data
             public virtual DbSet<Transaction> Transactions { get; set; }
             public virtual DbSet<Vehicle> Vehicles { get; set; }
             public virtual DbSet<VehicleType> VehicleTypes { get; set; }
-            protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
             {
-                if (!optionsBuilder.IsConfigured)
-                {
-                    optionsBuilder.UseSqlServer(ConnectionString);
-                }
-                optionsBuilder.UseLazyLoadingProxies();
+                optionsBuilder.UseSqlServer(ConnectionString, b => b.MigrationsAssembly("CarRental.Models"));
             }
+            optionsBuilder.UseLazyLoadingProxies();
         }
+    }
 }

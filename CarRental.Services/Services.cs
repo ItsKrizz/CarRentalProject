@@ -1,4 +1,6 @@
-﻿using CarRental.Models;
+﻿
+using CarRental.Data;
+using CarRental.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +11,9 @@ namespace CarRental.Services
 {
     public class CarRentalService
     {
-        private readonly CarRentalDbContext _context;
+        private readonly AppDbContext _context;
 
-        public CarRentalService(CarRentalDbContext context)
+        public CarRentalService(AppDbContext context)
         {
             _context = context;
         }
@@ -24,10 +26,6 @@ namespace CarRental.Services
             {
                 Customer = customer,
                 Vehicle = vehicle,
-                PickupDate = pickupDate,
-                ReturnDate = returnDate,
-                PickupLocation = pickupLocation,
-                ReturnLocation = returnLocation
             };
 
             // Add the reservation to the database and save changes
@@ -36,22 +34,7 @@ namespace CarRental.Services
 
             return reservation;
         }
-
-        // Method to get all available vehicles of a given type
-        public List<Vehicle> GetAvailableVehicles(string type, DateTime pickupDate, DateTime returnDate, Location pickupLocation)
-        {
-            // Get the VehicleType object with the given type name
-            VehicleType vehicleType = _context.VehicleTypes.FirstOrDefault(vt => vt.Name == type);
-
-            // Find all vehicles of the given type that are available during the specified rental period
-            var availableVehicles = _context.Vehicles
-                .Where(v => v.Type == vehicleType && v.Reservations
-                    .All(r => pickupDate >= r.ReturnDate || returnDate <= r.PickupDate ||
-                        (r.ReturnLocation != pickupLocation && r.PickupLocation != returnLocation)))
-                .ToList();
-
-            return availableVehicles;
-        }
+       
 
         // Method to get a customer's reservation history
         public List<Reservation> GetReservationHistory(Customer customer)
@@ -76,8 +59,6 @@ namespace CarRental.Services
                 Make = make,
                 Model = model,
                 Year = year,
-                Type = vehicleType,
-                DailyRate = dailyRate
             };
 
             // Add the vehicle to the database and save changes

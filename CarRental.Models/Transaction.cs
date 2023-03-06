@@ -9,6 +9,6 @@
         public int Id { get; set; }
         public decimal Amount { get; set; }
         public int ReservationId { get; set; }
-        public Reservation Reservation { get; set; }
+        public  virtual Reservation Reservation { get; set; }
     }
 }

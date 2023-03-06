@@ -8,6 +8,6 @@
     {
         public int Id { get; set; }
         public string Address { get; set; }
-        public ICollection<Vehicle> Vehicles { get; set; }
+        public virtual ICollection<Vehicle> Vehicles { get; set; }
     }
 }
