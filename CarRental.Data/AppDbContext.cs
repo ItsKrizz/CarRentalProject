@@ -20,7 +20,7 @@ namespace CarRental.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(ConnectionString, b => b.MigrationsAssembly("CarRental.Models"));
+                optionsBuilder.UseSqlServer(ConnectionString);
             }
             optionsBuilder.UseLazyLoadingProxies();
         }
