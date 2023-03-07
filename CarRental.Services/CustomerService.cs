@@ -7,38 +7,40 @@ namespace CarRental.Services
 {
     public class CustomerService
     {
-        private readonly AppDbContext _context;
-
-        public CustomerService(AppDbContext context)
-        {
-            _context = context;
-        }
+        private readonly AppDbContext context;
 
         public Customer GetCustomerById(int id)
         {
-            return _context.Customers.Find(id);
+            using (var context = new AppDbContext())
+            {
+                return context.Customers.Find(id);
+            }
         }
 
         public List<Customer> GetAllCustomers()
         {
-            return _context.Customers.ToList();
+            using (var context = new AppDbContext())
+            {
+                return context.Customers.ToList();
+            }
         }
 
         public Customer AddCustomer(string name, string email, string phoneNumber)
         {
-            var customer = new Customer
+            using (var context = new AppDbContext())
             {
-                Name = name,
-                Email = email,
-                PhoneNumber = phoneNumber
-            };
+                var customer = new Customer
+                {
+                    Name = name,
+                    Email = email,
+                    PhoneNumber = phoneNumber
+                };
 
-            _context.Customers.Add(customer);
-            _context.SaveChanges();
+                context.Customers.Add(customer);
+                context.SaveChanges();
 
-            return customer;
+                return customer;
+            }
         }
     }
 }
-
-

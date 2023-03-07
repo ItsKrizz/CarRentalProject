@@ -13,10 +13,10 @@ namespace CarRental.ConsoleApp
             using (var context = new AppDbContext())
             {
                 // Create a new instance of each service, passing in the AppDbContext
-                var vehicleService = new VehicleService(context);
-                var customerService = new CustomerService(context);
-                var locationService = new LocationService(context);
-                var reservationService = new ReservationService(context);
+                var vehicleService = new VehicleService();
+                var customerService = new CustomerService();
+                var locationService = new LocationService();
+                var reservationService = new ReservationService();
 
                 // Use the services to add data to the database
                 var vehicle = vehicleService.AddVehicle("Toyota", "Camry", 2020);

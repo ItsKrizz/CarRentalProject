@@ -1,5 +1,6 @@
 ﻿using CarRental.Data;
 using CarRental.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,38 +8,98 @@ namespace CarRental.Services
 {
     public class VehicleService
     {
-        private readonly AppDbContext _context;
-
-        public VehicleService(AppDbContext context)
-        {
-            _context = context;
-        }
+        private readonly AppDbContext context;
 
         public Vehicle GetVehicleById(int id)
         {
-            return _context.Vehicles.Find(id);
+            using (var context = new AppDbContext())
+            {
+                return context.Vehicles.Find(id);
+            }
         }
 
         public List<Vehicle> GetAllVehicles()
         {
-            return _context.Vehicles.ToList();
+            using (var context = new AppDbContext())
+            {
+                return context.Vehicles.ToList();
+            }
         }
 
         public Vehicle AddVehicle(string make, string model, int year)
         {
-            var vehicle = new Vehicle
+            using (var context = new AppDbContext())
             {
-                Make = make,
-                Model = model,
-                Year = year
-            };
+                var vehicle = new Vehicle
+                {
+                    Make = make,
+                    Model = model,
+                    Year = year
+                };
 
-            _context.Vehicles.Add(vehicle);
-            _context.SaveChanges();
+                context.Vehicles.Add(vehicle);
+                context.SaveChanges();
 
-            return vehicle;
+                return vehicle;
+            }
+        }
+
+        public List<Vehicle> GetAvailableVehicles(DateTime startDate, DateTime endDate)
+        {
+            using (var context = new AppDbContext())
+            {
+                var reservedVehicleIds = context.Reservations
+                    .Where(r => (r.StartDate <= startDate && r.EndDate >= startDate)
+                        || (r.StartDate <= endDate && r.EndDate >= endDate)
+                        || (r.StartDate >= startDate && r.EndDate <= endDate))
+                    .Select(r => r.VehicleId)
+                    .ToList();
+
+                return context.Vehicles
+                    .Where(v => !reservedVehicleIds.Contains(v.Id))
+                    .ToList();
+            }
+        }
+
+        public void UpdateVehicle(int id, string make, string model, int year)
+        {
+            using (var context = new AppDbContext())
+            {
+                var vehicle = context.Vehicles.Find(id);
+
+                if (vehicle == null)
+                {
+                    return;
+                }
+
+                vehicle.Make = make;
+                vehicle.Model = model;
+                vehicle.Year = year;
+
+                context.SaveChanges();
+            }
+        }
+
+        public void DeleteVehicle(int id)
+        {
+            using (var context = new AppDbContext())
+            {
+                var vehicle = context.Vehicles.Find(id);
+
+                if (vehicle == null)
+                {
+                    return;
+                }
+
+                context.Vehicles.Remove(vehicle);
+                context.SaveChanges();
+            }
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is VehicleService service &&
+                   EqualityComparer<AppDbContext>.Default.Equals(context, service.context);
         }
     }
 }
-
-

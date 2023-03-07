@@ -1,5 +1,6 @@
 ﻿using CarRental.Data;
 using CarRental.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,36 +8,38 @@ namespace CarRental.Services
 {
     public class LocationService
     {
-        private readonly AppDbContext _context;
-
-        public LocationService(AppDbContext context)
-        {
-            _context = context;
-        }
+        private readonly AppDbContext context;
 
         public Location GetLocationById(int id)
         {
-            return _context.Locations.Find(id);
+            using (var context = new AppDbContext())
+            {
+                return context.Locations.Find(id);
+            }
         }
 
         public List<Location> GetAllLocations()
         {
-            return _context.Locations.ToList();
+            using (var context = new AppDbContext())
+            {
+                return context.Locations.ToList();
+            }
         }
 
         public Location AddLocation(string address)
         {
-            var location = new Location
+            using (var context = new AppDbContext())
             {
-                Address = address
-            };
+                var location = new Location
+                {
+                    Address = address
+                };
 
-            _context.Locations.Add(location);
-            _context.SaveChanges();
+                context.Locations.Add(location);
+                context.SaveChanges();
 
-            return location;
+                return location;
+            }
         }
     }
 }
-
-
