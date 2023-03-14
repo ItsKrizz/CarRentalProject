@@ -18,15 +18,29 @@ namespace MainFormApp
             InitializeComponent();
         }
 
-        private void ButtonForCustomerService_Click(object sender, EventArgs e)
+
+        private void BtnCustomerService_Click(object sender, EventArgs e)
         {
             CustomerForm customerForm = new CustomerForm();
             customerForm.ShowDialog();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void BtnLocationService_Click(object sender, EventArgs e)
         {
-            a
+            LocationForm locationForm = new LocationForm();
+            locationForm.ShowDialog();
+        }
+
+        private void BtnReservationService_Click(object sender, EventArgs e)
+        {
+            ReservationForm reservationForm = new ReservationForm();
+            reservationForm.ShowDialog();
+        }
+
+        private void BtnVehichleService_Click(object sender, EventArgs e)
+        {
+            VehichleForm vehichleForm = new VehichleForm();
+            vehichleForm.ShowDialog();
         }
     }
 }
