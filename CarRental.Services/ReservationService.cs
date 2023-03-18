@@ -48,7 +48,7 @@ namespace CarRental.Services
         {
             using (var context = new AppDbContext())
             {
-                var reservation = new Reservation()
+                var reservation = new Reservation(startDate,endDate,vehicleId,customerId)
                 {
                     StartDate = startDate,
                     EndDate = endDate,
