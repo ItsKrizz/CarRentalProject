@@ -63,35 +63,46 @@ namespace ConsoleApp
                 }
 
 
-                static void ListAllVehicles(VehicleService vehicleService) 
-                { 
-                var vehicles = vehicleService.GetAllVehicles();
+                static void ListAllVehicles(VehicleService vehicleService)
+                {
+                    var vehicles = vehicleService.GetAllVehicles();
 
+                    Console.WriteLine("{0,-15} {1,-15} {2,-10}", "Make", "Model", "Year");
+                    Console.WriteLine("---------------------------------------------");
                     foreach (var vehicle in vehicles)
                     {
-                        Console.WriteLine($"{vehicle.Make} - {vehicle.Model} - {vehicle.Year}");
+                        Console.WriteLine("{0,-15} {1,-15} {2,-10}", vehicle.Make, vehicle.Model, vehicle.Year);
                     }
                 }
+
 
                 static void ListAllLocations(LocationService locationService)
                 {
                     var locations = locationService.GetAllLocations();
 
+                    Console.WriteLine("{0,-20} | {1,-30}", "Town", "Address");
+                    Console.WriteLine("--------------------------------+---------------------------------");
+
                     foreach (var location in locations)
                     {
-                        Console.WriteLine($"{location.Name} - {location.Address}");
+                        Console.WriteLine("{0,-20} | {1,-30}", location.Name, location.Address);
                     }
                 }
+
 
                 static void ListAllCustomers(CustomerService customerService)
                 {
                     var customers = customerService.GetAllCustomers();
 
+                    Console.WriteLine("| {0,-10} | {1,-20} | {2,-30} | {3,-15} |", "ID", "Name", "Email", "Phone Number");
+                    Console.WriteLine("|{0,-12}|{1,-22}|{2,-32}|{3,-17}|", new string('-', 12), new string('-', 22), new string('-', 32), new string('-', 17));
+
                     foreach (var customer in customers)
                     {
-                        Console.WriteLine($"{customer.Id} - {customer.Name}, {customer.Email}, {customer.PhoneNumber}");
+                        Console.WriteLine("| {0,-10} | {1,-20} | {2,-30} | {3,-15} |", customer.Id, customer.Name, customer.Email, customer.PhoneNumber);
                     }
                 }
+
 
                 static void AddReservation(ReservationService reservationService)
                 {
