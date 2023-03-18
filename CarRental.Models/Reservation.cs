@@ -5,6 +5,14 @@
     using System.Text;
     public class Reservation
     {
+        public Reservation() { } 
+        public Reservation(Customer customer, Location location, DateTime startDate)
+        {
+            Customer = customer;
+            StartDate = startDate;
+        }
+        public Location Location { get; set; }
+
         public int Id { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }

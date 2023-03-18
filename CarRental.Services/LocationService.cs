@@ -26,19 +26,19 @@ namespace CarRental.Services
             }
         }
 
-        public Location AddLocation(string address)
+        public Location AddLocation(string name,string address)
         {
             using (var context = new AppDbContext())
             {
-                var location = new Location
+                var location = new Location(name,address);
                 {
-                    Address = address
+                    context.Locations.Add(location);
+                    context.SaveChanges();
+
+                    return location;
                 };
 
-                context.Locations.Add(location);
-                context.SaveChanges();
-
-                return location;
+                
             }
         }
     }

@@ -29,11 +29,11 @@ namespace CarRental.Services
         {
             using (var context = new AppDbContext())
             {
-                var customer = new Customer
+                var customer = new Customer()
                 {
                     Name = name,
                     Email = email,
-                    PhoneNumber = phoneNumber
+                    
                 };
 
                 context.Customers.Add(customer);

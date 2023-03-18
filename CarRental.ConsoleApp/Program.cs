@@ -1,73 +1,177 @@
-﻿using CarRental.Data;
-using CarRental.Models;
-using CarRental.Services;
+﻿using CarRental.Models;
 using System;
+using System.Collections.Generic;
 
-namespace CarRental.ConsoleApp
+namespace ConsoleApp
 {
     class Program
     {
+        static List<Customer> customers = new List<Customer>();
+        static List<Location> locations = new List<Location>();
+        static List<Reservation> reservations = new List<Reservation>();
+
         static void Main(string[] args)
         {
-            using (var context = new AppDbContext())
+            bool exit = false;
+            while (!exit)
             {
-                // Adding a new customer
-                var customerService = new CustomerService();
-                var customer = customerService.AddCustomer("John Doe", "johndoe@example.com", "1234567890");
-                Console.WriteLine($"Customer with ID {customer.Id} has been added.");
+                Console.WriteLine("Welcome to the reservation system!");
+                Console.WriteLine("0 - Exit");
+                Console.WriteLine("1 - Add customer");
+                Console.WriteLine("2 - Add location");
+                Console.WriteLine("3 - Add reservation");
+                Console.WriteLine("4 - View customers");
+                Console.WriteLine("5 - View locations");
+                Console.WriteLine("6 - View reservations");
 
-                // Adding a new location
-                var locationService = new LocationService();
-                var location = locationService.AddLocation("123 Main St");
-                Console.WriteLine($"Location with ID {location.Id} has been added.");
+                Console.Write("Enter your choice: ");
+                string choiceString = Console.ReadLine();
 
-                // Adding a new vehicle
-                var vehicleService = new VehicleService();
-                var vehicle = vehicleService.AddVehicle("Toyota", "Camry", 2021);
-                Console.WriteLine($"Vehicle with ID {vehicle.Id} has been added.");
+                if (!int.TryParse(choiceString, out int choice))
+                {
+                    Console.WriteLine("Invalid choice. Please enter a number between 0 and 6.");
+                    continue;
+                }
 
-                // Adding a new reservation
-                var reservationService = new ReservationService();
-                var startDate = DateTime.Today.AddDays(1);
-                var endDate = DateTime.Today.AddDays(7);
-                var reservation = reservationService.AddReservation(startDate, endDate, vehicle.Id, customer.Id);
-                Console.WriteLine($"Reservation with ID {reservation.Id} has been added.");
+                switch (choice)
+                {
+                    case 0:
+                        exit = true;
+                        Console.WriteLine("Exiting the reservation system...");
+                        break;
+                    case 1:
+                        AddCustomer();
+                        break;
+                    case 2:
+                        AddLocation();
+                        break;
+                    case 3:
+                        AddReservation();
+                        break;
+                    case 4:
+                        ViewCustomers();
+                        break;
+                    case 5:
+                        ViewLocations();
+                        break;
+                    case 6:
+                        ViewReservations();
+                        break;
+                    default:
+                        Console.WriteLine("Invalid choice. Please enter a number between 0 and 6.");
+                        break;
+                }
 
-                // Retrieving a customer by ID
-                var retrievedCustomer = customerService.GetCustomerById(customer.Id);
-                Console.WriteLine($"Retrieved customer: {retrievedCustomer.Name}");
+                static void AddCustomer()
+                {
+                    Console.WriteLine("Adding a new customer...");
 
-                // Retrieving all customers
-                var allCustomers = customerService.GetAllCustomers();
-                Console.WriteLine($"Number of customers: {allCustomers.Count}");
+                    Console.Write("Enter the customer's name: ");
+                    string name = Console.ReadLine();
 
-                // Retrieving a location by ID
-                var retrievedLocation = locationService.GetLocationById(location.Id);
-                Console.WriteLine($"Retrieved location: {retrievedLocation.Address}");
+                    Console.Write("Enter the customer's email: ");
+                    string email = Console.ReadLine();
 
-                // Retrieving all locations
-                var allLocations = locationService.GetAllLocations();
-                Console.WriteLine($"Number of locations: {allLocations.Count}");
+                    Console.Write("Enter the customer's phone number: ");
+                    string phoneNumber = Console.ReadLine();
 
-                // Retrieving a vehicle by ID
-                var retrievedVehicle = vehicleService.GetVehicleById(vehicle.Id);
-                Console.WriteLine($"Retrieved vehicle: {retrievedVehicle.Make} {retrievedVehicle.Model}");
+                    Customer customer = new Customer(name, email,phoneNumber);
+                    customers.Add(customer);
 
-                // Retrieving all vehicles
-                var allVehicles = vehicleService.GetAllVehicles();
-                Console.WriteLine($"Number of vehicles: {allVehicles.Count}");
+                    Console.WriteLine("Customer added successfully.");
+                }
 
-                // Retrieving all reservations for a customer
-                var customerReservations = reservationService.GetReservationsByCustomerId(customer.Id);
-                Console.WriteLine($"Number of reservations for customer: {customerReservations.Count}");
+                static void AddLocation()
+                {
+                    Console.WriteLine("Adding a new location...");
 
-                // Retrieving all reservations for a vehicle
-                var vehicleReservations = reservationService.GetReservationsByVehicleId(vehicle.Id);
-                Console.WriteLine($"Number of reservations for vehicle: {vehicleReservations.Count}");
+                    Console.Write("Enter the location's name: ");
+                    string name = Console.ReadLine();
 
-                // Retrieving all available vehicles for a given date range
-                var availableVehicles = vehicleService.GetAvailableVehicles(startDate, endDate);
-                Console.WriteLine($"Number of available vehicles: {availableVehicles.Count}");
+                    Console.Write("Enter the location's address: ");
+                    string address = Console.ReadLine();
+
+                    Location location = new Location(name, address);
+                    locations.Add(location);
+
+                    Console.WriteLine("Location added successfully.");
+                }
+
+                static void AddReservation()
+                {
+                    Console.WriteLine("Adding a new reservation...");
+
+                    Console.Write("Enter the customer's email: ");
+                    string email = Console.ReadLine();
+
+                    Customer customer = customers.Find(c => c.Email == email);
+                    if (customer == null)
+                    {
+                        Console.WriteLine("Customer not found. Please add the customer first.");
+                        return;
+                    }
+
+                    Console.Write("Enter the location's name: ");
+                    string locationName = Console.ReadLine();
+
+                    Location location = locations.Find(l => l.Name == locationName);
+                    if (location == null)
+                    {
+                        Console.WriteLine("Location not found. Please add the location first.");
+                        return;
+                    }
+
+                    Console.Write("Enter the reservation date (yyyy-MM-dd): ");
+                    string dateString = Console.ReadLine();
+                    DateTime date;
+                    if (!DateTime.TryParse(dateString, out date))
+                    {
+                        Console.WriteLine("Invalid date format. Please enter the date in yyyy-MM-dd format.");
+                        return;
+                    }
+
+                    Reservation reservation = new Reservation(customer, location, date);
+                    reservations.Add(reservation);
+
+                    Console.WriteLine("Reservation added successfully.");
+                }
+
+                static void ViewCustomers()
+                {
+                    Console.WriteLine("List of customers:");
+
+                    foreach (Customer customer in customers)
+                    {
+                        Console.WriteLine($"Name: {customer.Name}, Email: {customer.Email}");
+                    }
+
+                    Console.WriteLine();
+                }
+
+                static void ViewLocations()
+                {
+                    Console.WriteLine("List of locations:");
+                    foreach (Location location in locations)
+                    {
+                        Console.WriteLine($"Name: {location.Name}, Address: {location.Address}");
+                    }
+
+                    Console.WriteLine();
+                }
+
+                static void ViewReservations()
+                {
+                    Console.WriteLine("List of reservations:");
+
+                    foreach (Reservation reservation in reservations)
+                    {
+                        Console.WriteLine($"Customer: {reservation.Customer.Name} ({reservation.Customer.Email})");
+                        Console.WriteLine($"Location: {reservation.Location.Name} ({reservation.Location.Address})");
+                        Console.WriteLine($"Date: {reservation.StartDate.ToString("yyyy-MM-dd")}");
+                        Console.WriteLine();
+                    }
+                }
+
             }
         }
     }

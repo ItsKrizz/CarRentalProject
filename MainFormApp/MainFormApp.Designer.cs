@@ -28,65 +28,64 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.BtnCustomerService = new System.Windows.Forms.Button();
-            this.BtnLocationService = new System.Windows.Forms.Button();
-            this.BtnReservationService = new System.Windows.Forms.Button();
-            this.BtnVehichleService = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            BtnCustomerService = new System.Windows.Forms.Button();
+            BtnLocationService = new System.Windows.Forms.Button();
+            BtnReservationService = new System.Windows.Forms.Button();
+            BtnVehichleService = new System.Windows.Forms.Button();
+            SuspendLayout();
             // 
             // BtnCustomerService
             // 
-            this.BtnCustomerService.Location = new System.Drawing.Point(46, 51);
-            this.BtnCustomerService.Name = "BtnCustomerService";
-            this.BtnCustomerService.Size = new System.Drawing.Size(104, 54);
-            this.BtnCustomerService.TabIndex = 0;
-            this.BtnCustomerService.Text = "Customer service";
-            this.BtnCustomerService.UseVisualStyleBackColor = true;
-            this.BtnCustomerService.Click += new System.EventHandler(this.BtnCustomerService_Click);
+            BtnCustomerService.Location = new System.Drawing.Point(46, 51);
+            BtnCustomerService.Name = "BtnCustomerService";
+            BtnCustomerService.Size = new System.Drawing.Size(104, 54);
+            BtnCustomerService.TabIndex = 0;
+            BtnCustomerService.Text = "Customer service";
+            BtnCustomerService.UseVisualStyleBackColor = true;
+            BtnCustomerService.Click += BtnCustomerService_Click;
             // 
             // BtnLocationService
             // 
-            this.BtnLocationService.Location = new System.Drawing.Point(46, 121);
-            this.BtnLocationService.Name = "BtnLocationService";
-            this.BtnLocationService.Size = new System.Drawing.Size(104, 54);
-            this.BtnLocationService.TabIndex = 1;
-            this.BtnLocationService.Text = "Location service";
-            this.BtnLocationService.UseVisualStyleBackColor = true;
-            this.BtnLocationService.Click += new System.EventHandler(this.BtnLocationService_Click);
+            BtnLocationService.Location = new System.Drawing.Point(46, 121);
+            BtnLocationService.Name = "BtnLocationService";
+            BtnLocationService.Size = new System.Drawing.Size(104, 54);
+            BtnLocationService.TabIndex = 1;
+            BtnLocationService.Text = "Location service";
+            BtnLocationService.UseVisualStyleBackColor = true;
+            BtnLocationService.Click += BtnLocationService_Click;
             // 
             // BtnReservationService
             // 
-            this.BtnReservationService.Location = new System.Drawing.Point(46, 190);
-            this.BtnReservationService.Name = "BtnReservationService";
-            this.BtnReservationService.Size = new System.Drawing.Size(104, 54);
-            this.BtnReservationService.TabIndex = 2;
-            this.BtnReservationService.Text = "Reservation service";
-            this.BtnReservationService.UseVisualStyleBackColor = true;
-            this.BtnReservationService.Click += new System.EventHandler(this.BtnReservationService_Click);
+            BtnReservationService.Location = new System.Drawing.Point(46, 190);
+            BtnReservationService.Name = "BtnReservationService";
+            BtnReservationService.Size = new System.Drawing.Size(104, 54);
+            BtnReservationService.TabIndex = 2;
+            BtnReservationService.Text = "Reservation service";
+            BtnReservationService.UseVisualStyleBackColor = true;
+            BtnReservationService.Click += BtnReservationService_Click;
             // 
             // BtnVehichleService
             // 
-            this.BtnVehichleService.Location = new System.Drawing.Point(46, 261);
-            this.BtnVehichleService.Name = "BtnVehichleService";
-            this.BtnVehichleService.Size = new System.Drawing.Size(104, 54);
-            this.BtnVehichleService.TabIndex = 3;
-            this.BtnVehichleService.Text = "Vehichle service";
-            this.BtnVehichleService.UseVisualStyleBackColor = true;
-            this.BtnVehichleService.Click += new System.EventHandler(this.BtnVehichleService_Click);
+            BtnVehichleService.Location = new System.Drawing.Point(46, 261);
+            BtnVehichleService.Name = "BtnVehichleService";
+            BtnVehichleService.Size = new System.Drawing.Size(104, 54);
+            BtnVehichleService.TabIndex = 3;
+            BtnVehichleService.Text = "Vehichle service";
+            BtnVehichleService.UseVisualStyleBackColor = true;
+            BtnVehichleService.Click += BtnVehichleService_Click;
             // 
             // MainFormApp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(213, 383);
-            this.Controls.Add(this.BtnVehichleService);
-            this.Controls.Add(this.BtnReservationService);
-            this.Controls.Add(this.BtnLocationService);
-            this.Controls.Add(this.BtnCustomerService);
-            this.Name = "MainFormApp";
-            this.Text = "Choose option";
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(201, 381);
+            Controls.Add(BtnVehichleService);
+            Controls.Add(BtnReservationService);
+            Controls.Add(BtnLocationService);
+            Controls.Add(BtnCustomerService);
+            Name = "MainFormApp";
+            Text = "Choose option";
+            ResumeLayout(false);
         }
 
         #endregion
