@@ -11,7 +11,7 @@
             Customer = customer;
             StartDate = startDate;
         }
-        public Location Location { get; set; }
+        public virtual Location Location { get; set; }
 
         public int Id { get; set; }
         public DateTime StartDate { get; set; }

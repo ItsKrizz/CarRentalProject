@@ -33,7 +33,7 @@ namespace CarRental.Services
                 {
                     Name = name,
                     Email = email,
-                    
+                    PhoneNumber = phoneNumber
                 };
 
                 context.Customers.Add(customer);
