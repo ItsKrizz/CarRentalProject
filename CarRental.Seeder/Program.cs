@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Xml.Linq;
 using CarRental.Services;
 namespace CarRental.Seeder
 {
@@ -8,11 +11,41 @@ namespace CarRental.Seeder
         private static CustomerService customerService = new CustomerService();
         private static VehicleService vehicleService = new VehicleService();
         private static LocationService locationService = new LocationService();
+        public static ReservationService reservationService = new ReservationService();
         public static void Main()
         {
             //SeedCustomers(100);
             //SeedVehicles(100);
             //SeedLocations(100);
+            SeedReservations(100);
+        }
+
+        public static void SeedReservations(int reservationCount)
+        {
+
+            List<int> vehicleId = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8 };
+            List<int> customerId = new List<int>() {1,2,3,4,5,6,7,8};
+            List<DateTime> reservationStartDates = new List<DateTime>();
+            List<DateTime> reservationEndDates = new List<DateTime>();
+
+            for (int i = 0; i < reservationCount; i++)
+            {
+
+                Random random = new Random();
+
+                DateTime start = new DateTime(2022, 1, 1);
+                int range = (DateTime.Today - start).Days;
+                DateTime startDate = start.AddDays(random.Next(range));
+                DateTime endDate = startDate.AddDays(random.Next(1, 14));
+                reservationStartDates.Add(startDate);
+                reservationEndDates.Add(endDate);
+
+                int vehicleIdCount = random.Next(0, vehicleId.Count);
+                int customerIdCount = random.Next(0, customerId.Count);
+
+                Console.WriteLine(reservationService.AddReservation(reservationStartDates[i], reservationEndDates[i], vehicleId[vehicleIdCount], customerId[customerIdCount]));
+            }
+
         }
         public static void SeedLocations(int locationCounts)
         {
@@ -31,11 +64,11 @@ namespace CarRental.Seeder
         }
         public static void SeedVehicles(int vehicleCount)
         {
-            List<string> make = new List<string>() { "BMW", "Mercedes", "Audi","Mazda", "Opel" };
+            List<string> make = new List<string>() { "BMW", "Mercedes", "Audi", "Mazda", "Opel" };
             List<string> model = new List<string>() { "Astra", "320", "C220", "S500", "RS6", "6" };
-            List<int> year = new List<int> { 2005,2006,2007,2012,2014,1999,1987 };
+            List<int> year = new List<int> { 2005, 2006, 2007, 2012, 2014, 1999, 1987 };
 
-            Random random=new Random();
+            Random random = new Random();
 
             for (int i = 0; i < vehicleCount; i++)
             {

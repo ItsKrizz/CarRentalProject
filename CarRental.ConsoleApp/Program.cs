@@ -26,6 +26,7 @@ namespace ConsoleApp
                 Console.WriteLine("3 - List all customers");
                 Console.WriteLine("4 - List all locations");
                 Console.WriteLine("5 - List all vehicles");
+                Console.WriteLine("6 - List all reservations");
 
                 Console.Write("Enter your choice: ");
                 string choiceString = Console.ReadLine();
@@ -57,9 +58,23 @@ namespace ConsoleApp
                     case 5:
                         ListAllVehicles(vehicleService);
                         break;
+                    case 6:
+                        ListAllReservations(reservationService); break;
                     default:
                         Console.WriteLine("Invalid choice. Please enter a number between 0 and 6.");
                         break;
+                }
+                static void ListAllReservations(ReservationService reservationService)
+                {
+                    var reservations = reservationService.GetAllReservations();
+
+                    Console.WriteLine("Start Date\t\tEnd Date");
+                    Console.WriteLine("---------------------------------------------------------------");
+
+                    foreach (var reservation in reservations)
+                    {
+                        Console.WriteLine($"{reservation.StartDate.ToShortDateString()}\t\t{reservation.EndDate.ToShortDateString()}");
+                    }
                 }
 
 
