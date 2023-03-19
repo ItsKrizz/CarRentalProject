@@ -7,16 +7,21 @@
     public class Customer
     {
         public Customer() { }
-        public Customer(string name, string email,string phoneNumber)
+        public Customer(string name, string email, string phoneNumber)
         {
             Name = name;
             Email = email;
             PhoneNumber = phoneNumber;
         }
-        
+        [Key]
         public int Id { get; set; }
+        [Required]
+        [MaxLength(10)]
         public string Name { get; set; }
+        [Required]
         public string Email { get; set; }
+        [Required]
+        [MaxLength(10)]
         public string PhoneNumber { get; set; }
         public virtual ICollection<Reservation> Reservations { get; set; }
     }
