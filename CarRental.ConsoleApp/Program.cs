@@ -19,7 +19,7 @@ namespace ConsoleApp
             bool exit = false;
             while (!exit)
             {
-                Console.WriteLine("Welcome to the reservation system!");
+                Console.WriteLine("Welcome to the car rental system!");
                 Console.WriteLine("0 - Exit");
                 Console.WriteLine("1 - Add customer");
                 Console.WriteLine("2 - Add location");

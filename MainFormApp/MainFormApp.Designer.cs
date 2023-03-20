@@ -78,7 +78,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(201, 381);
+            ClientSize = new System.Drawing.Size(202, 372);
             Controls.Add(BtnVehichleService);
             Controls.Add(BtnReservationService);
             Controls.Add(BtnLocationService);
