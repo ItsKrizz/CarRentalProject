@@ -21,16 +21,48 @@ namespace CarRental.FormApp
 
         private void CustomerForm_Load(object sender, EventArgs e)
         {
-            var customers = _customerService.GetAllCustomers(); // get all the customers
+            var customers = _customerService.GetAllCustomers();
             foreach (var customer in customers)
             {
-                listBox1.Items.Add(customer); // add each customer to the list box
+                listBox1.Items.Add(customer);
             }
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // handle the selected index changed event if needed
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int id;
+            if (int.TryParse(textBox1.Text, out id))
+            {
+                var customer = _customerService.GetCustomerById(id);
+                if (customer != null)
+                {
+                    listBox2.Items.Clear();
+                    listBox2.Items.Add(customer);
+                }
+                else
+                {
+                    MessageBox.Show("No customer found with the specified ID.", "Search Result");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid integer ID.", "Input Error");
+            }
+        }
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

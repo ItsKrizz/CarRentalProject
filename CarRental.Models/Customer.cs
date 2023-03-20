@@ -27,7 +27,7 @@
 
         public override string ToString()
         {
-            return $"{Name}, Email: {Email} (ID: {PhoneNumber})";
+            return $"|Name: {Name} | Email: {Email} | Phone Number: {PhoneNumber}|";
         }
     }
 }
