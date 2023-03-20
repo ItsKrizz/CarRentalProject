@@ -15,9 +15,9 @@ namespace CarRental.Seeder
         public static ReservationService reservationService = new ReservationService();
         public static void Main()
         {
-            //SeedCustomers(100);
-            //SeedVehicles(100);
-            //SeedLocations(100);
+            SeedCustomers(100);
+            SeedVehicles(100);
+            SeedLocations(100);
             SeedReservations(100);
         }
 
@@ -94,32 +94,6 @@ namespace CarRental.Seeder
                 Console.WriteLine(customerService.AddCustomer(firstName[customerFirstNameIndex], email[customerEmailIndex], phoneNumber[customerPhoneNumberIndex]));
             }
         }
-
-        public static void SeedReservations(int reservationCount)
-        {
-            Random random = new Random();
-            List<Customer> customers = customerService.GetAllCustomers();
-            List<Vehicle> vehicles = vehicleService.GetAllVehicles();
-            List<Location> locations = locationService.GetAllLocations();
-
-            for (int i = 0; i < reservationCount; i++)
-            {
-                int customerIdCount = random.Next(0, customers.Count);
-                int vehicleIdCount = random.Next(0, vehicles.Count);
-                int locationIdCount = random.Next(0, locations.Count);
-
-                DateTime start = new DateTime(2022, 1, 1);
-                int range = (DateTime.Today - start).Days;
-                DateTime startDate = start.AddDays(random.Next(range));
-                DateTime endDate = startDate.AddDays(random.Next(1, 14));
-
-                Reservation reservation = new Reservation(startDate, endDate, vehicles[vehicleIdCount].Id, customers[customerIdCount].Id);
-                reservation.Location = locations[locationIdCount];
-                reservationService.AddReservation(reservation);
-            }
-        }
-
     }
-
 }
 

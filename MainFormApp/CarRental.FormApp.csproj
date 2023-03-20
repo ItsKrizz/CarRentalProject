@@ -20,4 +20,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CarRental.Data\CarRental.Data.csproj" />
+    <ProjectReference Include="..\CarRental.Models\CarRental.Models.csproj" />
+    <ProjectReference Include="..\CarRental.Services\CarRental.Services.csproj" />
+  </ItemGroup>
+
 </Project>

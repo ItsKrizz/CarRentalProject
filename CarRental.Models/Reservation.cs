@@ -1,5 +1,6 @@
 ﻿namespace CarRental.Models
 {
+    using Castle.Components.DictionaryAdapter;
     using System;
     using System.Collections.Generic;
     using System.Text;
@@ -18,8 +19,9 @@
             StartDate = startDate;
         }
         public virtual Location Location { get; set; }
-
+        
         public int Id { get; set; }
+
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public int VehicleId { get; set; }

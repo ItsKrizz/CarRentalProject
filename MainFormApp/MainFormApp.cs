@@ -42,5 +42,10 @@ namespace MainFormApp
             VehichleForm vehichleForm = new VehichleForm();
             vehichleForm.ShowDialog();
         }
+
+        private void MainFormApp_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

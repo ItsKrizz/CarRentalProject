@@ -85,6 +85,7 @@
             Controls.Add(BtnCustomerService);
             Name = "MainFormApp";
             Text = "Choose option";
+            Load += MainFormApp_Load;
             ResumeLayout(false);
         }
 
