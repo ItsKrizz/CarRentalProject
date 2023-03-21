@@ -39,41 +39,45 @@
             // 
             // BtnCustomerService
             // 
+            BtnCustomerService.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             BtnCustomerService.Location = new System.Drawing.Point(525, 12);
             BtnCustomerService.Name = "BtnCustomerService";
             BtnCustomerService.Size = new System.Drawing.Size(165, 123);
             BtnCustomerService.TabIndex = 0;
-            BtnCustomerService.Text = "Customer service";
+            BtnCustomerService.Text = "Customer\r\nService";
             BtnCustomerService.UseVisualStyleBackColor = true;
             BtnCustomerService.Click += BtnCustomerService_Click;
             // 
             // BtnLocationService
             // 
+            BtnLocationService.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             BtnLocationService.Location = new System.Drawing.Point(354, 141);
             BtnLocationService.Name = "BtnLocationService";
             BtnLocationService.Size = new System.Drawing.Size(165, 123);
             BtnLocationService.TabIndex = 1;
-            BtnLocationService.Text = "Location service";
+            BtnLocationService.Text = "Location\r\nService";
             BtnLocationService.UseVisualStyleBackColor = true;
             BtnLocationService.Click += BtnLocationService_Click;
             // 
             // BtnReservationService
             // 
+            BtnReservationService.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             BtnReservationService.Location = new System.Drawing.Point(354, 12);
             BtnReservationService.Name = "BtnReservationService";
             BtnReservationService.Size = new System.Drawing.Size(165, 123);
             BtnReservationService.TabIndex = 2;
-            BtnReservationService.Text = "Reservation service";
+            BtnReservationService.Text = "Reservation\r\nService";
             BtnReservationService.UseVisualStyleBackColor = true;
             BtnReservationService.Click += BtnReservationService_Click;
             // 
             // BtnVehichleService
             // 
+            BtnVehichleService.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             BtnVehichleService.Location = new System.Drawing.Point(525, 141);
             BtnVehichleService.Name = "BtnVehichleService";
             BtnVehichleService.Size = new System.Drawing.Size(165, 123);
             BtnVehichleService.TabIndex = 3;
-            BtnVehichleService.Text = "Vehichle service";
+            BtnVehichleService.Text = "Vehicle\r\nService";
             BtnVehichleService.UseVisualStyleBackColor = true;
             BtnVehichleService.Click += BtnVehichleService_Click;
             // 
@@ -81,7 +85,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Stencil", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label1.Location = new System.Drawing.Point(242, 276);
+            label1.Location = new System.Drawing.Point(243, 276);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(233, 84);
             label1.TabIndex = 4;

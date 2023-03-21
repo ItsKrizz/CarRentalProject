@@ -50,6 +50,7 @@
             // 
             // listBox1
             // 
+            listBox1.Font = new System.Drawing.Font("Tw Cen MT", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 15;
             listBox1.Location = new System.Drawing.Point(12, 99);
