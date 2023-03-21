@@ -28,5 +28,10 @@
         public virtual Vehicle Vehicle { get; set; }
         public int CustomerId { get; set; }
         public virtual Customer Customer { get; set; }
+
+        public override string ToString()
+        {
+            return $"Start Date: {StartDate.ToShortDateString()} | End Date: {EndDate.ToShortDateString()} | Vehicle ID: {VehicleId} | Customer ID: {CustomerId}";
+        }
     }
 }

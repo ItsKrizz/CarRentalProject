@@ -8,7 +8,7 @@ namespace CarRental.Data
 {
         public class AppDbContext : DbContext
         {
-            private const string ConnectionString = @"Server=MIRKO-PC\SQLEXPRESS; Initial Catalog=CarRentalEf; Integrated Security=true; Trusted_Connection=true";
+            private const string ConnectionString = @"Server=DESKTOP-LVCQ3HO; Initial Catalog=CarRentalEf; Integrated Security=true; Trusted_Connection=true";
             public virtual DbSet<Customer> Customers { get; set; }
             public virtual DbSet<Insurance> Insurances { get; set; }
             public virtual DbSet<Location> Locations { get; set; }

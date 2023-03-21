@@ -36,7 +36,7 @@
             // 
             // BtnCustomerService
             // 
-            BtnCustomerService.Location = new System.Drawing.Point(46, 51);
+            BtnCustomerService.Location = new System.Drawing.Point(12, 12);
             BtnCustomerService.Name = "BtnCustomerService";
             BtnCustomerService.Size = new System.Drawing.Size(104, 54);
             BtnCustomerService.TabIndex = 0;
@@ -46,7 +46,7 @@
             // 
             // BtnLocationService
             // 
-            BtnLocationService.Location = new System.Drawing.Point(46, 121);
+            BtnLocationService.Location = new System.Drawing.Point(122, 12);
             BtnLocationService.Name = "BtnLocationService";
             BtnLocationService.Size = new System.Drawing.Size(104, 54);
             BtnLocationService.TabIndex = 1;
@@ -56,7 +56,7 @@
             // 
             // BtnReservationService
             // 
-            BtnReservationService.Location = new System.Drawing.Point(46, 190);
+            BtnReservationService.Location = new System.Drawing.Point(12, 72);
             BtnReservationService.Name = "BtnReservationService";
             BtnReservationService.Size = new System.Drawing.Size(104, 54);
             BtnReservationService.TabIndex = 2;
@@ -66,7 +66,7 @@
             // 
             // BtnVehichleService
             // 
-            BtnVehichleService.Location = new System.Drawing.Point(46, 261);
+            BtnVehichleService.Location = new System.Drawing.Point(122, 72);
             BtnVehichleService.Name = "BtnVehichleService";
             BtnVehichleService.Size = new System.Drawing.Size(104, 54);
             BtnVehichleService.TabIndex = 3;
@@ -78,7 +78,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(202, 372);
+            ClientSize = new System.Drawing.Size(237, 136);
             Controls.Add(BtnVehichleService);
             Controls.Add(BtnReservationService);
             Controls.Add(BtnLocationService);

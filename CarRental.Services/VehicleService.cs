@@ -61,25 +61,6 @@ namespace CarRental.Services
             }
         }
 
-        public void UpdateVehicle(int id, string make, string model, int year)
-        {
-            using (var context = new AppDbContext())
-            {
-                var vehicle = context.Vehicles.Find(id);
-
-                if (vehicle == null)
-                {
-                    return;
-                }
-
-                vehicle.Make = make;
-                vehicle.Model = model;
-                vehicle.Year = year;
-
-                context.SaveChanges();
-            }
-        }
-
         public void DeleteVehicle(int id)
         {
             using (var context = new AppDbContext())
@@ -94,12 +75,6 @@ namespace CarRental.Services
                 context.Vehicles.Remove(vehicle);
                 context.SaveChanges();
             }
-        }
-
-        public override bool Equals(object obj)
-        {
-            return obj is VehicleService service &&
-                   EqualityComparer<AppDbContext>.Default.Equals(context, service.context);
         }
     }
 }

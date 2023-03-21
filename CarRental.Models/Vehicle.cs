@@ -14,5 +14,10 @@
         public int Year { get; set; }
         [Required]
         public bool IsAvailable { get; set; }
+
+        public override string ToString()
+        {
+            return $"Make: {Make} | Model: {Model} | Year: {Year}";
+        }
     }
 }

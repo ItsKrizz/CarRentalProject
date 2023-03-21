@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using CarRental.Services;
+using CarRental.FormApp;
 
 namespace CarRental.FormApp
 {
@@ -61,6 +62,78 @@ namespace CarRental.FormApp
         }
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string name = textBox2.Text;
+            string email = textBox4.Text;
+            string phoneNumber = textBox3.Text;
+
+            if (name.Length < 2)
+            {
+                MessageBox.Show("Invalid name", "Input Error");
+                return;
+            }
+
+            if (phoneNumber.Length < 6)
+            {
+                MessageBox.Show("Invalid phone number", "Input Error");
+                return;
+            }
+
+            if (email.Length == 0)
+            {
+                MessageBox.Show("Invalid email", "Input Error");
+                return;
+            }
+
+            var customerService = new CustomerService();
+            customerService.AddCustomer(name, email, phoneNumber);
+
+            MessageBox.Show("Customer added successfully", "Success");
+        }
+
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide(); // hide the current form
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

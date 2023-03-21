@@ -18,5 +18,10 @@
         public string Address { get; set; }
         public virtual ICollection<Vehicle> Vehicles { get; set; }
         public string Name { get; set; }
+
+        public override string ToString()
+        {
+            return $"Town/Village: {Name} | Address: {Address}";
+        }
     }
 }
