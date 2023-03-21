@@ -44,22 +44,7 @@ namespace CarRental.Services
             }
         }
 
-        public List<Vehicle> GetAvailableVehicles(DateTime startDate, DateTime endDate)
-        {
-            using (var context = new AppDbContext())
-            {
-                var reservedVehicleIds = context.Reservations
-                    .Where(r => (r.StartDate <= startDate && r.EndDate >= startDate)
-                        || (r.StartDate <= endDate && r.EndDate >= endDate)
-                        || (r.StartDate >= startDate && r.EndDate <= endDate))
-                    .Select(r => r.VehicleId)
-                    .ToList();
-
-                return context.Vehicles
-                    .Where(v => !reservedVehicleIds.Contains(v.Id))
-                    .ToList();
-            }
-        }
+        
 
         public void DeleteVehicle(int id)
         {

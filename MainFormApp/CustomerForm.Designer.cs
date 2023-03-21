@@ -212,6 +212,8 @@
             Controls.Add(button1);
             Controls.Add(textBox1);
             Controls.Add(listBox1);
+            MaximumSize = new System.Drawing.Size(777, 514);
+            MinimumSize = new System.Drawing.Size(777, 514);
             Name = "CustomerForm";
             Text = "Customer Info";
             Load += CustomerForm_Load;

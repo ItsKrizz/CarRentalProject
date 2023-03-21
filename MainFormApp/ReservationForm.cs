@@ -6,7 +6,6 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using CarRental.Services;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CarRental.FormApp
@@ -140,5 +139,71 @@ namespace CarRental.FormApp
         {
 
         }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            DateTime startDate = dateTimePicker1.Value;
+            DateTime endDate = dateTimePicker2.Value;
+            int vehicleId;
+            int customerId;
+
+            if (!int.TryParse(textBox4.Text, out vehicleId))
+            {
+                MessageBox.Show("Invalid vehicle ID", "Input Error");
+                return;
+            }
+
+            if (!int.TryParse(textBox5.Text, out customerId))
+            {
+                MessageBox.Show("Invalid customer ID", "Input Error");
+                return;
+            }
+
+            var reservationService = new ReservationService();
+            var reservation = reservationService.AddReservation(startDate, endDate, vehicleId, customerId);
+
+            MessageBox.Show("Reservation added successfully", "Success");
+        }
+
     }
 }

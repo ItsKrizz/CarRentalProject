@@ -173,6 +173,8 @@
             Controls.Add(label1);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
+            MaximumSize = new System.Drawing.Size(663, 449);
+            MinimumSize = new System.Drawing.Size(663, 449);
             Name = "LocationForm";
             Text = "LocationForm";
             Load += LocationForm_Load;

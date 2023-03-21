@@ -19,7 +19,6 @@
             StartDate = startDate;
         }
         public virtual Location Location { get; set; }
-        
         public int Id { get; set; }
 
         public DateTime StartDate { get; set; }
