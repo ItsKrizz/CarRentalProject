@@ -1,4 +1,5 @@
-﻿using CarRental.Services;
+﻿using CarRental.Models;
+using CarRental.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -203,7 +204,13 @@ namespace CarRental.FormApp
             var reservation = reservationService.AddReservation(startDate, endDate, vehicleId, customerId);
 
             MessageBox.Show("Reservation added successfully", "Success");
-        }
 
+            listBox1.Items.Clear();
+            List<Reservation> reservations = reservationService.GetAllReservations();
+            foreach (Reservation r in reservations)
+            {
+                listBox1.Items.Add(r);
+            }
+        }
     }
 }

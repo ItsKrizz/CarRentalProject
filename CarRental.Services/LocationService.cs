@@ -37,8 +37,6 @@ namespace CarRental.Services
 
                     return location;
                 };
-
-                
             }
         }
     }

@@ -47,6 +47,16 @@
             textBox5 = new System.Windows.Forms.TextBox();
             listBox1 = new System.Windows.Forms.ListBox();
             pictureBox1 = new System.Windows.Forms.PictureBox();
+            textBox6 = new System.Windows.Forms.TextBox();
+            textBox7 = new System.Windows.Forms.TextBox();
+            textBox8 = new System.Windows.Forms.TextBox();
+            label8 = new System.Windows.Forms.Label();
+            label9 = new System.Windows.Forms.Label();
+            label10 = new System.Windows.Forms.Label();
+            button5 = new System.Windows.Forms.Button();
+            label11 = new System.Windows.Forms.Label();
+            textBox9 = new System.Windows.Forms.TextBox();
+            label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -101,7 +111,7 @@
             // 
             // button3
             // 
-            button3.Location = new System.Drawing.Point(370, 358);
+            button3.Location = new System.Drawing.Point(370, 352);
             button3.Name = "button3";
             button3.Size = new System.Drawing.Size(75, 23);
             button3.TabIndex = 10;
@@ -112,7 +122,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(359, 251);
+            label3.Location = new System.Drawing.Point(359, 245);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(69, 15);
             label3.TabIndex = 8;
@@ -122,7 +132,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(294, 275);
+            label4.Location = new System.Drawing.Point(294, 269);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(36, 15);
             label4.TabIndex = 13;
@@ -131,7 +141,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new System.Drawing.Point(294, 304);
+            label5.Location = new System.Drawing.Point(294, 298);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(41, 15);
             label5.TabIndex = 14;
@@ -140,7 +150,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new System.Drawing.Point(294, 329);
+            label6.Location = new System.Drawing.Point(294, 323);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(29, 15);
             label6.TabIndex = 15;
@@ -159,13 +169,14 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new System.Drawing.Font("Stencil", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label7.Location = new System.Drawing.Point(473, 293);
+            label7.Font = new System.Drawing.Font("Stencil", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label7.Location = new System.Drawing.Point(504, 244);
             label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(199, 88);
+            label7.Size = new System.Drawing.Size(156, 68);
             label7.TabIndex = 17;
             label7.Text = "Top G\r\nVehicles";
             label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            label7.Click += label7_Click;
             // 
             // textBox1
             // 
@@ -185,7 +196,7 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new System.Drawing.Point(345, 272);
+            textBox3.Location = new System.Drawing.Point(345, 266);
             textBox3.Name = "textBox3";
             textBox3.Size = new System.Drawing.Size(100, 23);
             textBox3.TabIndex = 20;
@@ -193,7 +204,7 @@
             // 
             // textBox4
             // 
-            textBox4.Location = new System.Drawing.Point(345, 301);
+            textBox4.Location = new System.Drawing.Point(345, 295);
             textBox4.Name = "textBox4";
             textBox4.Size = new System.Drawing.Size(100, 23);
             textBox4.TabIndex = 21;
@@ -201,7 +212,7 @@
             // 
             // textBox5
             // 
-            textBox5.Location = new System.Drawing.Point(345, 329);
+            textBox5.Location = new System.Drawing.Point(345, 323);
             textBox5.Name = "textBox5";
             textBox5.Size = new System.Drawing.Size(100, 23);
             textBox5.TabIndex = 22;
@@ -219,17 +230,116 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new System.Drawing.Point(537, 109);
+            pictureBox1.Image = Properties.Resources.Sunset_Tate_Quote;
+            pictureBox1.Location = new System.Drawing.Point(451, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new System.Drawing.Size(100, 50);
+            pictureBox1.Size = new System.Drawing.Size(240, 229);
+            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 24;
             pictureBox1.TabStop = false;
+            // 
+            // textBox6
+            // 
+            textBox6.Location = new System.Drawing.Point(591, 336);
+            textBox6.Name = "textBox6";
+            textBox6.Size = new System.Drawing.Size(100, 23);
+            textBox6.TabIndex = 32;
+            textBox6.TextChanged += textBox6_TextChanged;
+            // 
+            // textBox7
+            // 
+            textBox7.Location = new System.Drawing.Point(469, 380);
+            textBox7.Name = "textBox7";
+            textBox7.Size = new System.Drawing.Size(100, 23);
+            textBox7.TabIndex = 31;
+            textBox7.TextChanged += textBox7_TextChanged;
+            // 
+            // textBox8
+            // 
+            textBox8.Location = new System.Drawing.Point(469, 336);
+            textBox8.Name = "textBox8";
+            textBox8.Size = new System.Drawing.Size(100, 23);
+            textBox8.TabIndex = 30;
+            textBox8.TextChanged += textBox8_TextChanged;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new System.Drawing.Point(469, 406);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(29, 15);
+            label8.TabIndex = 29;
+            label8.Text = "Year";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(591, 362);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(41, 15);
+            label9.TabIndex = 28;
+            label9.Text = "Model";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new System.Drawing.Point(469, 362);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(36, 15);
+            label10.TabIndex = 27;
+            label10.Text = "Make";
+            // 
+            // button5
+            // 
+            button5.Location = new System.Drawing.Point(542, 422);
+            button5.Name = "button5";
+            button5.Size = new System.Drawing.Size(75, 23);
+            button5.TabIndex = 26;
+            button5.Text = "Update";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new System.Drawing.Point(542, 318);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(85, 15);
+            label11.TabIndex = 25;
+            label11.Text = "Update Vehicle";
+            // 
+            // textBox9
+            // 
+            textBox9.Location = new System.Drawing.Point(591, 380);
+            textBox9.Name = "textBox9";
+            textBox9.Size = new System.Drawing.Size(100, 23);
+            textBox9.TabIndex = 33;
+            textBox9.TextChanged += textBox9_TextChanged;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new System.Drawing.Point(591, 406);
+            label12.Name = "label12";
+            label12.Size = new System.Drawing.Size(17, 15);
+            label12.TabIndex = 34;
+            label12.Text = "Id";
             // 
             // VehichleForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(703, 450);
+            Controls.Add(label12);
+            Controls.Add(textBox9);
+            Controls.Add(textBox6);
+            Controls.Add(textBox7);
+            Controls.Add(textBox8);
+            Controls.Add(label8);
+            Controls.Add(label9);
+            Controls.Add(label10);
+            Controls.Add(button5);
+            Controls.Add(label11);
             Controls.Add(pictureBox1);
             Controls.Add(listBox1);
             Controls.Add(textBox5);
@@ -279,5 +389,15 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.Label label12;
     }
 }

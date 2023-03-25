@@ -17,7 +17,6 @@ namespace CarRental.Services
                 return context.Vehicles.Find(id);
             }
         }
-
         public List<Vehicle> GetAllVehicles()
         {
             using (var context = new AppDbContext())
@@ -25,7 +24,6 @@ namespace CarRental.Services
                 return context.Vehicles.ToList();
             }
         }
-
         public Vehicle AddVehicle(string make, string model, int year)
         {
             using (var context = new AppDbContext())
@@ -43,9 +41,6 @@ namespace CarRental.Services
                 return vehicle;
             }
         }
-
-        
-
         public void DeleteVehicle(int id)
         {
             using (var context = new AppDbContext())
@@ -58,6 +53,24 @@ namespace CarRental.Services
                 }
 
                 context.Vehicles.Remove(vehicle);
+                context.SaveChanges();
+            }
+        }
+        public void UpdateVehicle(int id, string newMake, string newModel, int newYear)
+        {
+            using (var context = new AppDbContext())
+            {
+                var vehicle = context.Vehicles.Find(id);
+
+                if (vehicle == null)
+                {
+                    return;
+                }
+
+                vehicle.Make = newMake;
+                vehicle.Model = newModel;
+                vehicle.Year = newYear;
+
                 context.SaveChanges();
             }
         }

@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using CarRental.Services;
 using CarRental.FormApp;
+using CarRental.Models;
 
 namespace CarRental.FormApp
 {
@@ -94,6 +95,13 @@ namespace CarRental.FormApp
             customerService.AddCustomer(name, email, phoneNumber);
 
             MessageBox.Show("Customer added successfully", "Success");
+
+            listBox1.Items.Clear();
+            List<Customer> customers = customerService.GetAllCustomers();
+            foreach (Customer c in customers)
+            {
+                listBox1.Items.Add(c);
+            }
         }
 
 
@@ -114,7 +122,7 @@ namespace CarRental.FormApp
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Hide(); // hide the current form
+            this.Hide();
 
         }
 

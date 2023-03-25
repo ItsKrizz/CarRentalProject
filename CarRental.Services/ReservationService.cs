@@ -6,12 +6,10 @@ using System.Linq;
 
 namespace CarRental.Services
 {
-
     public class ReservationService
     {
         private readonly AppDbContext context;
 
-        
         public Reservation GetReservationById(int id)
         {
             using (var context = new AppDbContext())
@@ -19,7 +17,6 @@ namespace CarRental.Services
                 return context.Reservations.Find(id);
             }
         }
-
         public List<Reservation> GetAllReservations()
         {
             using (var context = new AppDbContext())
@@ -35,7 +32,6 @@ namespace CarRental.Services
                 return context.Reservations.Where(r => r.CustomerId == customerId).ToList();
             }
         }
-
         public List<Reservation> GetReservationsByVehicleId(int vehicleId)
         {
             using (var context = new AppDbContext())
@@ -43,7 +39,6 @@ namespace CarRental.Services
                 return context.Reservations.Where(r => r.VehicleId == vehicleId).ToList();
             }
         }
-
         public Reservation AddReservation(DateTime startDate, DateTime endDate, int vehicleId, int customerId)
         {
             using (var context = new AppDbContext())

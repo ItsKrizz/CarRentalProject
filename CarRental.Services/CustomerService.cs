@@ -16,7 +16,6 @@ namespace CarRental.Services
                 return context.Customers.Find(id);
             }
         }
-
         public List<Customer> GetAllCustomers()
         {
             using (var context = new AppDbContext())
@@ -24,7 +23,6 @@ namespace CarRental.Services
                 return context.Customers.ToList();
             }
         }
-
         public Customer AddCustomer(string name, string email, string phoneNumber)
         {
             using (var context = new AppDbContext())

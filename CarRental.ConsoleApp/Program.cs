@@ -7,8 +7,6 @@ namespace ConsoleApp
 {
     class Program
     {
-
-
         static void Main(string[] args)
         {
             CustomerService customerService = new CustomerService();
@@ -76,8 +74,6 @@ namespace ConsoleApp
                         Console.WriteLine($"{reservation.StartDate.ToShortDateString()}\t\t{reservation.EndDate.ToShortDateString()}");
                     }
                 }
-
-
                 static void ListAllVehicles(VehicleService vehicleService)
                 {
                     var vehicles = vehicleService.GetAllVehicles();
@@ -89,8 +85,6 @@ namespace ConsoleApp
                         Console.WriteLine("{0,-15} {1,-15} {2,-10}", vehicle.Make, vehicle.Model, vehicle.Year);
                     }
                 }
-
-
                 static void ListAllLocations(LocationService locationService)
                 {
                     var locations = locationService.GetAllLocations();
@@ -103,8 +97,6 @@ namespace ConsoleApp
                         Console.WriteLine("{0,-20} | {1,-30}", location.Name, location.Address);
                     }
                 }
-
-
                 static void ListAllCustomers(CustomerService customerService)
                 {
                     var customers = customerService.GetAllCustomers();
@@ -117,8 +109,6 @@ namespace ConsoleApp
                         Console.WriteLine("| {0,-10} | {1,-20} | {2,-30} | {3,-15} |", customer.Id, customer.Name, customer.Email, customer.PhoneNumber);
                     }
                 }
-
-
                 static void AddReservation(ReservationService reservationService)
                 {
                     Console.WriteLine("Adding a new reservation...");
@@ -141,8 +131,6 @@ namespace ConsoleApp
 
                     Console.WriteLine("Reservation added successfully.");
                 }
-
-
                 static void AddCustomer(CustomerService customerService)
                 {
                     Console.WriteLine("Adding a new customer...");
@@ -160,7 +148,6 @@ namespace ConsoleApp
 
                     Console.WriteLine("Customer added successfully.");
                 }
-
                 static void AddLocation(LocationService locationService)
                 {
                     Console.WriteLine("Adding a new location...");
@@ -175,7 +162,6 @@ namespace ConsoleApp
 
                     Console.WriteLine("Location added successfully.");
                 }
-
             }
         }
     }

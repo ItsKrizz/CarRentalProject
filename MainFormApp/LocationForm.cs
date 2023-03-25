@@ -6,8 +6,8 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using CarRental.Services;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using CarRental.Models;
 
 namespace CarRental.FormApp
 {
@@ -37,12 +37,19 @@ namespace CarRental.FormApp
                 return;
             }
 
-
             var locationService = new LocationService();
             locationService.AddLocation(town, address);
 
             MessageBox.Show("Location added successfully", "Success");
+
+            listBox1.Items.Clear();
+            List<Location> locations = locationService.GetAllLocations();
+            foreach (Location l in locations)
+            {
+                listBox1.Items.Add(l);
+            }
         }
+
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
