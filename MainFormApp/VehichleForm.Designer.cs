@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox1 = new System.Windows.Forms.PictureBox();
             label1 = new System.Windows.Forms.Label();
             button1 = new System.Windows.Forms.Button();
             listBox2 = new System.Windows.Forms.ListBox();
@@ -47,18 +46,9 @@
             textBox4 = new System.Windows.Forms.TextBox();
             textBox5 = new System.Windows.Forms.TextBox();
             listBox1 = new System.Windows.Forms.ListBox();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.Sunset_Tate_Quote;
-            pictureBox1.Location = new System.Drawing.Point(451, 12);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new System.Drawing.Size(244, 229);
-            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -227,11 +217,20 @@
             listBox1.TabIndex = 23;
             listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged_1;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new System.Drawing.Point(537, 109);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(100, 50);
+            pictureBox1.TabIndex = 24;
+            pictureBox1.TabStop = false;
+            // 
             // VehichleForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(703, 450);
+            Controls.Add(pictureBox1);
             Controls.Add(listBox1);
             Controls.Add(textBox5);
             Controls.Add(textBox4);
@@ -250,7 +249,6 @@
             Controls.Add(listBox2);
             Controls.Add(button1);
             Controls.Add(label1);
-            Controls.Add(pictureBox1);
             MaximumSize = new System.Drawing.Size(719, 489);
             MinimumSize = new System.Drawing.Size(719, 489);
             Name = "VehichleForm";
@@ -262,8 +260,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListBox listBox2;
@@ -282,5 +278,6 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
